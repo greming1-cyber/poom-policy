@@ -1,9 +1,16 @@
 # poom-policy
 
-poom 앱의 버전 정책 JSON을 GitHub Pages로 호스팅하는 저장소입니다.
+poom 앱의 버전 정책 JSON과 공개 문서를 GitHub Pages로 호스팅하는 저장소입니다.
 
 - 정책 URL: https://greming1-cyber.github.io/poom-policy/version_policy.json
+- 개인정보처리방침: https://greming1-cyber.github.io/poom-policy/privacy.html (스토어 등록·AdMob 심사 제출용)
 - 앱 쪽 참조 위치: IVF_app `lib/infrastructure/update/update_checker.dart`의 `policyUrl`
+
+## privacy.html 관리
+
+앱 내 화면(IVF_app `lib/presentation/more/privacy_policy_screen.dart`)과 문구를 동일하게 유지합니다.
+방침 내용을 바꿀 때는 **두 곳을 함께 수정**하고 시행일도 같이 갱신하세요.
+특히 광고(7항)는 현재 "광고 미포함" 문구인데, AdMob 게재가 시작되는 릴리스 때 두 곳 모두 갱신이 필요합니다.
 
 ## version_policy.json 필드
 
