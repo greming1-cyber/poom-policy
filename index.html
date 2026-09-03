@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>poom — 시험관 시술 투약·일정 관리 앱</title>
+<meta name="description" content="poom은 시험관 시술 과정의 투약과 일정을 기기 안에서 안전하게 관리하는 앱입니다.">
+
+<!--
+  ▼▼▼ Google Search Console 소유권 인증용 메타태그 자리 ▼▼▼
+  Search Console에서 'URL 접두어'로 이 사이트를 등록할 때 발급되는
+  <meta name="google-site-verification" content="..."> 태그를 아래 줄에 붙여넣으세요.
+-->
+<!-- <meta name="google-site-verification" content="여기에_인증코드"> -->
+<!--
+  ▲▲▲ 인증 후에도 태그는 지우지 말고 그대로 두세요 ▲▲▲
+-->
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+    color: #4E5968;
+    background: #fff;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  .hero {
+    background: linear-gradient(160deg, #EAF7F0 0%, #F7FBF9 100%);
+    padding: 56px 20px 48px;
+    text-align: center;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: #00B96B;
+    color: #fff;
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(0,185,107,0.25);
+  }
+  .hero h1 {
+    font-size: 30px;
+    font-weight: 800;
+    color: #191F28;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .hero .tagline {
+    font-size: 16px;
+    color: #4E5968;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 44px 20px 40px;
+  }
+  section { margin-bottom: 36px; }
+  h2 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #191F28;
+    margin-bottom: 14px;
+  }
+  .lead { font-size: 15px; margin-bottom: 12px; }
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .feature {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #F9FAFB;
+    border: 1px solid #F2F4F6;
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .feature .ic { flex: none; font-size: 22px; line-height: 1.2; }
+  .feature .txt strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #191F28;
+    margin-bottom: 2px;
+  }
+  .feature .txt span { font-size: 13.5px; color: #6B7684; }
+  .highlight {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: #EAF7F0;
+    border-radius: 14px;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #06603A;
+    line-height: 1.55;
+  }
+  .highlight .icon { flex: none; font-size: 18px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .links a.primary { background: #00B96B; color: #fff; }
+  .links a.ghost { background: #F2F4F6; color: #191F28; }
+  footer {
+    border-top: 1px solid #F2F4F6;
+    background: #FBFCFD;
+    padding: 28px 20px 44px;
+  }
+  .biz {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #8B95A1;
+    line-height: 1.7;
+  }
+  .biz h3 {
+    font-size: 13px;
+    font-weight: 800;
+    color: #6B7684;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .biz .row span { color: #6B7684; font-weight: 600; }
+  .biz .email a { color: #4E5968; text-decoration: none; font-weight: 700; }
+  .biz .copy { margin-top: 14px; color: #B0B8C1; }
+  .todo {
+    color: #C08A00;
+    background: #FFF8E6;
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo">p</div>
+  <h1>poom</h1>
+  <p class="tagline">시험관 시술의 투약과 일정을, 기기 안에서 안전하게 함께 관리하는 앱</p>
+</header>
+
+<main>
+  <section>
+    <h2>poom은 이런 앱이에요</h2>
+    <p class="lead">poom은 시험관 시술(IVF) 과정을 준비하는 분들을 위한 투약·일정 관리 앱입니다.
+    복잡한 주사 스케줄과 병원 일정을 놓치지 않도록 돕고, 차수별 기록을 한곳에 모아 둡니다.
+    모든 기록은 서버 없이 <strong>이용자의 기기 안에만</strong> 저장됩니다.</p>
+  </section>
+
+  <section>
+    <h2>주요 기능</h2>
+    <div class="features">
+      <div class="feature">
+        <span class="ic">💉</span>
+        <span class="txt"><strong>투약 스케줄 &amp; 알림</strong>
+        <span>차수별 주사·복약 일정을 등록하고 정확한 시각에 알림을 받습니다.</span></span>
+      </div>
+      <div class="feature">
+        <span class="ic">🗓️</span>
+        <span class="txt"><strong>일정 캘린더</strong>
+        <span>병원 방문·시술 일정을 한눈에 보고 오늘 할 일을 확인합니다.</span></span>
+      </div>
+      <div class="feature">
+        <span class="ic">📈</span>
+        <span class="txt"><strong>기록과 리포트</strong>
+        <span>초음파·피검사 수치와 배아 사진을 기록하고 PDF 리포트로 정리합니다.</span></span>
+      </div>
+      <div class="feature">
+        <span class="ic">🔒</span>
+        <span class="txt"><strong>안전한 백업</strong>
+        <span>복구 코드로 암호화한 백업 파일로 데이터를 안전하게 옮깁니다.</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="highlight">
+      <span class="icon">🛡️</span>
+      <span>poom의 모든 건강 기록은 기기 안에만 저장돼요.
+      개발자를 포함해 그 누구도 이용자의 기록을 외부에서 들여다볼 수 없어요.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>더 알아보기</h2>
+    <div class="links">
+      <a class="ghost" href="privacy.html">개인정보처리방침</a>
+      <a class="ghost" href="mailto:app-mng@naver.com">문의하기</a>
+      <!-- 스토어 출시 후 아래 주석을 풀고 실제 링크로 교체하세요
+      <a class="primary" href="[[구글_플레이_스토어_링크]]">Google Play에서 받기</a>
+      -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="biz">
+    <h3>사업자 정보</h3>
+    <div class="row"><span>상호</span> : [[ 상호명 ]] <span class="todo">← 직접 입력</span></div>
+    <div class="row"><span>대표자</span> : [[ 대표자명 ]] <span class="todo">← 직접 입력</span></div>
+    <div class="row"><span>사업자등록번호</span> : [[ 000-00-00000 ]] <span class="todo">← 직접 입력</span></div>
+    <div class="row"><span>통신판매업 신고번호</span> : [[ 제0000-지역-0000호 ]] <span class="todo">← 직접 입력</span></div>
+    <div class="row"><span>주소</span> : [[ 사업장 주소 — 원치 않으면 이 줄 삭제 ]] <span class="todo">← 직접 입력/삭제</span></div>
+    <div class="row"><span>전화</span> : [[ 000-0000-0000 — 원치 않으면 이 줄 삭제 ]] <span class="todo">← 직접 입력/삭제</span></div>
+    <div class="row email"><span>이메일</span> : <a href="mailto:app-mng@naver.com">app-mng@naver.com</a></div>
+    <p class="copy">© 2026 poom. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
